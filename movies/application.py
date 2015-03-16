@@ -8,7 +8,8 @@ class ApplicationService:
         self.rating_service = rating_service if rating_service is not None else RatingService(rating_api_key)
 
     def get_movies(self, start, count):
-        movies = self.movie_service.get()[start:start + count]
-        for movie in movies:
-            movie.rating = self.rating_service.get(movie)
-            yield movie
+        movies = self.movie_service.get()
+        for index, movie in enumerate(movies):
+            if start <= index < start + count:
+                movie.rating = self.rating_service.get(movie)
+                yield movie

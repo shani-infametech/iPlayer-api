@@ -1,6 +1,3 @@
-from django.db import models
-
-
 class Media(object):
     def __init__(self, pid):
         self.pid = pid

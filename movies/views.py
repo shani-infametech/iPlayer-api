@@ -1,12 +1,10 @@
-from operator import itemgetter
 import time
 import jsonpickle
+from leto import settings
+from operator import itemgetter
 from django.http import HttpResponse
 from django.shortcuts import render
 from movies.application import ApplicationService
-
-from movies.models import *
-from datetime import date
 
 
 def home(request):
@@ -14,12 +12,7 @@ def home(request):
 
 
 def get(request, start, count, xres, yres):
-
-    rating = Rating(5, 2)
-    movie = Movie("b0183321", "Burke and Hare", 5040, date(2010, 1, 1), Image("p01pfpbp"), "Dark comedy about the Edinburgh duo who provided cadavers for the medical establishment.")
-    movie.rating = rating
-
-    movies = [movie]  # ApplicationService().get_movies(start, count)
+    movies = ApplicationService(rating_api_key=settings.RATING_API_KEY).get_movies(int(start), int(count))
     data = [
         {
             "title": x.title,
