@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
-# from django.contrib import admin
 
 urlpatterns = patterns(
     '',
-    url(r'^$', 'movies.views.home', name='home'),
+    url(r'^$', include('movies.urls')),
+    url(r'^movies/', include('movies.urls'))
 )
