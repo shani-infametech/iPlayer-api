@@ -28,7 +28,7 @@ class MovieService:
     def get(self):
         response = urllib.request.urlopen(self.url)
         data = response.read()
-        text = data.decode('utf-8')
+        text = data.decode("utf-8")
         obj = jsonpickle.decode(text)
         movies = MovieService.parse_movies(obj)
         return movies
@@ -51,7 +51,7 @@ class RatingService:
         url = self.url.format(quote_plus(movie.title), self.api_key)
         response = urllib.request.urlopen(url)
         data = response.read()
-        text = data.decode('utf-8')
+        text = data.decode("utf-8")
         obj = jsonpickle.decode(text)
         rating = RatingService.parse_rating(obj)
         return rating
