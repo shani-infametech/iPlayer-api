@@ -94,4 +94,4 @@ TEMPLATE_DIRS = (
 
 MOVIE_SERVICE_URL = "http://www.bbc.co.uk/tv/programmes/formats/films/player/episodes.json"
 RATING_SERVICE_URL = "http://api.themoviedb.org/3/search/movie?query={0}&api_key={1}"
-RATING_API_KEY = "3b638e65e7c411ce3aa5c4c5eddabed9"
+RATING_API_KEY = "[ENTER_MOVIE_DB_API_KEY]"
